@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['id'])) {
 
-	include("../../Controllers/conexion.php");
+	include("../Controllers/conexion.php");
 
     
 

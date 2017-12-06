@@ -25,7 +25,7 @@ session_start();
 <br>
 <br>
 
-<h1>Index Grupos</h1>
+<h1>Index Proyectos</h1>
 
 
 <div class="col-xs-1"></div>
@@ -46,7 +46,6 @@ session_start();
                 <th >Nombre</th>
                 <th >Descripcion</th>
                 <th >Tipo</th>
-                <th >Miembros</th>
 
                 <th >Opciones</th>
             </tr>
@@ -60,10 +59,10 @@ session_start();
 
 include('../../Controllers/conexion.php');
 $id_s=$_SESSION['id'];
-
-// echo $id_proyecto;
-//$query = "SELECT grupo.* from grupo INNER JOIN proyecto on grupo.fk_proyecto = proyecto.id_proyecto WHERE proyecto.fk_perfil = '$id_s'";
-  $query = "SELECT grupo.* from grupo INNER JOIN proyecto on grupo.fk_proyecto = proyecto.id_proyecto INNER JOIN user_grupo on user_grupo.fk_proyecto = grupo.fk_proyecto where user_grupo.fk_perfil = '$id_s'";  
+$id_proyecto=$_GET['id_proyecto'];
+echo $id_proyecto;
+$query = "SELECT grupo.* from perfil INNER JOIN user_grupo on perfil.id_usuario = user_grupo.fk_perfil INNER JOIN proyecto on user_grupo.fk_proyecto = proyecto.id_proyecto INNER JOIN grupo on proyecto.id_proyecto = grupo.fk_proyecto where user_grupo.fk_perfil = '$id_s'";
+    
 $result = mysqli_query($link, $query);
 if ($result) {
   # code...
@@ -74,7 +73,6 @@ if ($result) {
                         <td>".$registro['nombre']."</td>
                         <td>".$registro['descripcion']."</td>
                         <td>".$registro['tipo']."</td>
-                        <td><a href='miembros.php?id_proyecto=".$registro['fk_proyecto']."' >Ver Miembros</a></td>
 
 
                          

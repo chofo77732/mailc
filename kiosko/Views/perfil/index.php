@@ -12,10 +12,10 @@ session_start();
     <title>Aplicacion Web</title>
 
     <link rel="stylesheet" href="../../Resources/css/bootstrap.css">
-
+<link rel="stylesheet" href="../../Resources/css/tema.css">
 </head>
  
-<body>
+<body onload="modificar()">
     <!--Barra de Navegacion-->
 
 
@@ -98,7 +98,7 @@ echo "<img class='img-responsive img-portfolio img-hover' src=\"ver.php?id=".$_S
             <!-- Parte central -->
             <div class="col-md-9">
                 <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey;">
-                    <img src="FMUNIFERCOM2.png" class="img-responsive img-rounded">
+                    <!-- <img src="FMUNIFERCOM2.png" class="img-responsive img-rounded"> -->
                     <h3 style="text-align: center">Mi perfil <p><small>Añade información personal para compartir tu perfil</small></p></h3>
                 </div>
                 <!-- Se inicia el form (ojo todos los elementos de formulario deben ir dentro de esta etiqueta-->
@@ -107,68 +107,66 @@ echo "<img class='img-responsive img-portfolio img-hover' src=\"ver.php?id=".$_S
                 <div class="col-md-12" style="border-width: 1px 1px 0px 1px; border-style: solid; border-color: lightgrey; background: #f1f3f6;">
                     <div class="col-md-8 col-md-offset-2">
                         
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <br >
-                                    <label>Información básica</label>
-                                    <span id="alertName" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Introduzca su nombre" required data-validation-required-message="Por favor introduzca su nombre.">
-                                    </span>
-                                    <br>
-                                     <span  <div class="form-group">
-                                     <label>Sexo: </label>
-                                     <input type="radio" name="sexo" value="h"> Hombre
-                                     <input type="radio" name="sexo" value="m"> Mujer 
-                                    </span>
-                                    <br >
-                                     <br >
+<div class="control-group form-group">
+<div class="controls">
+    <br >
+    <label>Información básica</label>
+    <span id="alertName" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introduzca su nombre" required data-validation-required-message="Por favor introduzca su nombre.">
+    </span>
+    <br>
+     <span  <div class="form-group">
+     <label>Sexo: </label>
+     <input type="radio" name="sexo" value="h"> Hombre
+     <input type="radio" name="sexo" value="m"> Mujer 
+    </span>
+    <br >
+     <br >
 
-                                    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="text" class="form-control" id="ocupacion" name="ocupacion" placeholder="Introduzca su ocupación" required data-validation-required-message="Por favor introduzca su ocupación.">
-                                    </span>
-                                    <br >
-                                    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="email" class="form-control" id="txtEmail" placeholder="Introduzca su especificación de ocupación" required data-validation-required-message="Por favor introduzca su especificación de ocupación.">
-                                    </span>
-                                    <br >
-                                    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="email" class="form-control" id="txtEmail" placeholder="Introduzca su carrera" required data-validation-required-message="Por favor introduzca su Carrera.">
-                                    </span>
-                                    <br >
-                                    <span div class="control-group">
-                                      <label class="control-label" for="edad">Edad</label>
-                                      <div class="controls">
-                                        <input id="edad" name="edad" type="text" placeholder="DD/MM/YYY/" class="input-xlarge">
-                                        
-                                      </div>
-                                    </div>
-                                 </span>
-                                    <br >
-                                    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="email" class="form-control" id="txtEmail" placeholder="Introduzca sus interes " required data-validation-required-message="Por favor introduzca sus interes.">
-                                    </span>
-                                    <br >
-                                    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="email" class="form-control" id="txtEmail" placeholder="Introduzca sus habilidades" required data-validation-required-message="Por favor introduzca sus habilidades.">
-                                        <br >
-                                    <div class="controls">
-                                    <label>Auto descripción:</label>
-                                    <span id="alertBiography" data-toggle="popover" data-trigger="hover" data-placement="auto" title="" data-content="">
-                                        <textarea rows="6" cols="30" class="form-control" id="txtBiography" required maxlength="999" style="resize:none" 
-                                        data-validation-required-message="Por favor introduzca su auto descrpción."></textarea>
-                                    </span>
-                                    <br >
-                                     <div class="controls">
-                                    <label>Introduzca Meta de vida:</label>
-                                    <span id="alertBiography" data-toggle="popover" data-trigger="hover" data-placement="auto" title="" data-content="">
-                                        <textarea rows="6" cols="30" class="form-control" id="txtBiography" required maxlength="999" style="resize:none" 
-                                        data-validation-required-message="Por favor introduzca su meta de vida."></textarea>
-                                        <br>
-                                    </span>
-                                    <span id="alertNumber" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
-                                        <input type="Number" class="form-control" id="txtNumber" placeholder="Introduzca su telefono" required data-validation-required-message="Por favor introduzca su Telefono.">
-                                    </span>
-                                    
+    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="ocupacion" name="ocupacion" placeholder="Introduzca su ocupación" required data-validation-required-message="Por favor introduzca su ocupación.">
+    </span>
+    <br >
+    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="espec_ocupacion" name="espec_ocupacion" placeholder="Introduzca su especificación de ocupación" required data-validation-required-message="Por favor introduzca su especificación de ocupación.">
+    </span>
+    <br >
+    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="carrera" placeholder="Introduzca su carrera" required data-validation-required-message="Por favor introduzca su Carrera.">
+    </span>
+    <br >
+    <span div class="control-group">
+      <label class="control-label" for="edad">Edad</label>
+      <div class="controls">
+        <input id="edad" name="edad" type="text" placeholder="" class="input-xlarge">
+        
+      </div>
+    </div>
+ </span>
+    <br >
+    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="intereses" placeholder="Introduzca sus interes " required data-validation-required-message="Por favor introduzca sus interes.">
+    </span>
+    <br >
+    <span id="alertQualification" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="habilidades" placeholder="Introduzca sus habilidades" required data-validation-required-message="Por favor introduzca sus habilidades.">
+        <br >
+    <div class="controls">
+    <label>Auto descripción:</label>
+    
+        <textarea rows="6" cols="30" class="form-control" id="autodescripcion" name="autodescripcion" required maxlength="999" placeholder="Por favor introduzca su autodescripción."></textarea>
+    
+    <br >
+     <div class="controls">
+    <label>Introduzca Meta de vida:</label>
+    
+        <textarea rows="6" cols="30" class="form-control" id="meta_vida" name="meta_vida" required placeholder="Por favor introduzca su meta de vida."></textarea>
+        <br>
+    
+    <span id="telefono" data-toggle="popover" data-trigger="hover" data-placement="right" title="" data-content="">
+        <input type="text" class="form-control" id="telefono" placeholder="Introduzca su telefono" required>
+    </span>
+    
                                     <p class="help-block"></p>
                                 </div>
                             </div>
@@ -198,7 +196,7 @@ echo "<img class='img-responsive img-portfolio img-hover' src=\"ver.php?id=".$_S
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon">https://www.facebook.com</span><input type="text" class="form-control" id="txtFacebook" placeholder="Introduzca su usuario de Facebook">
+                                    <span class="input-group-addon">https://www.facebook.com</span><input type="text" class="form-control" id="facebook" placeholder="Introduzca su usuario de Facebook">
                                 </div>
                                 <br>
 
@@ -219,7 +217,7 @@ echo "<img class='img-responsive img-portfolio img-hover' src=\"ver.php?id=".$_S
                         <div class="col-md-5 col-md-offset-3">
                             <div class="form-group">
                                 <button type="button" id="btnClean" class="btn btn-warning">Limpiar</button>
-                                <button type="submit" id="btnEnviar" class="btn btn-primary">Actualizar</button>
+                                <button type="submit" id="btnEnviar" onclick="registrar()" class="btn btn-primary">Actualizar</button>
                             </div>
                         </div>
                         &nbsp;
@@ -280,26 +278,7 @@ Archivo: <INPUT type="file" name="foto" size="30">
 
    //Código para que la web muestre el popover
     $('[data-toggle="popover"]').popover();
-}
-
-        // function guardarImg(){
-        //     // alert("eso");
-        //     var foto = $('#foto').val();
-        //     var user = $('#user').val();
-
-        //     $.ajax({
-        //         url:'../../Controllers/perfil.php',
-        //         type:'POST',
-        //         data:'user='+user+'&foto='+foto+"&boton=img"
-        //         // alert(foto);
-        //     }).done(function(resp){
-        //         if(resp=='exito'){
-        //             location.reload();
-        //         }else{
-        //             alert(resp);
-        //         }
-        //     });
-        // }
+})
 
 
         function cerrar()
@@ -314,6 +293,81 @@ Archivo: <INPUT type="file" name="foto" size="30">
             });
         }
     </script>
+
+<script type="text/javascript">
+    
+
+  function registrar(){
+
+            var nombre=$('#nombre').val();
+            var sexo=$('#sexo').val();
+            var ocupacion=$('#ocupacion').val();
+            var espec_ocupacion=$('#espec_ocupacion').val();
+            var carrera=$('#carrera').val();
+            var edad=$('#edad').val();
+            var intereses=$('#intereses').val();
+            var habilidades=$('#habilidades').val();
+            var autodescripcion=$('#autodescripcion').val();
+            var meta_vida=$('#meta_vida').val();
+            var telefono=$('#telefono').val();
+            var facebook=$('#facebook').val();
+
+
+        $.ajax({
+            url:'../../Controllers/perfil.php',
+            type:'POST',
+            data:'nombre='+nombre+ '&sexo='+sexo+ '&ocupacion='+ocupacion+ '&espec_ocupacion='+espec_ocupacion+ '&carrera='+carrera+ '&edad='+edad+ '&intereses='+intereses+ '&habilidades='+habilidades+ '&autodescripcion='+autodescripcion+ '&meta_vida='+meta_vida+ '&telefono='+telefono+ '&facebook='+facebook+'&boton=editar'
+        }).done(function(respuesta){
+            if (respuesta=='exito') {
+                // $('#exito').show();
+
+            }
+            else{
+                alert(respuesta);
+            }
+            
+        })  .always(function(data) {
+
+    location.reload();
+  });
+}
+
+function modificar(){
+    //$('#responsive')[0].reset();
+   
+    var url = '../../Controllers/perfil.php';
+        $.ajax({
+        type:'POST',
+        url:url,
+        data:'boton=modificar',
+        success: function(valores){
+
+                var datos = JSON.parse(valores);
+
+                $('#nombre').val(datos[1]);
+                $('#sexo').val(datos[3]);
+                $('#ocupacion').val(datos[6]);
+                $('#espec_ocupacion').val(datos[7]);
+                $('#carrera').val(datos[8]);
+                $('#edad').val(datos[9]);
+                $('#intereses').val(datos[10]);
+                $('#habilidades').val(datos[11]);
+                $('#autodescripcion').val(datos[12]);
+                $('#meta_vida').val(datos[13]);
+                $('#telefono').val(datos[14]);
+                $('#facebook').val(datos[15]);
+
+                
+            return false;
+
+        }
+    });
+    return false;
+}
+
+</script>
+
+
 </body>
 </html>
 

@@ -12,7 +12,7 @@ session_start();
     <title>Aplicacion Web</title>
 
     <link rel="stylesheet" href="../Resources/css/bootstrap.css">
-
+<link rel="stylesheet" href="../Resources/css/tema.css">
 </head>
  
 <body>

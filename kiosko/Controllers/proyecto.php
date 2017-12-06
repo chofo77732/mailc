@@ -2,8 +2,9 @@
 	
 		require_once('conexion.php');
 
+session_start();
+		$boton=$_POST['pro'];
 
-		$boton=$_POST['boton'];
 
 		switch ($boton) {
 
@@ -16,23 +17,27 @@
              $imagen_temporal=$_FILES['imagen']['tmp_name'] ;
 			$imagen_contenido = addslashes(fread(fopen($imagen_temporal, "rb"), filesize($imagen_temporal)));
 
-			$archivo_temporal=$_FILES['archivo']['tmp_name'] ;
-			$archivo_contenido = addslashes(fread(fopen($archivo_temporal, "rb"), filesize($archivo_temporal)));
+			// $archivo_temporal=$_FILES['archivo']['tmp_name'] ;
+			// $archivo_contenido = addslashes(fread(fopen($archivo_temporal, "rb"), filesize($archivo_temporal)));
              // $imagen=$_POST['imagen'];
              // $archivo=$_POST['archivo'];
              $area=$_POST['area'];
-             $fk_perfil=$_POST['fk_perfil'];
+             $fk_perfil=$_SESSION['id'];
 
-             $valores = "INSERT INTO `proyecto`(`nombre`, `tipo`, `descripcion`, `imagen`, `archivo`, `area`, `fk_perfil`) VALUES ('$nombre','$tipo','$descripcion','$imagen_contenido','$archivo_contenido','$area','$fk_perfil')";
+
+
+             $valores = "INSERT INTO `proyecto`(`nombre`, `tipo`, `descripcion`, `imagen`, `area`, `fk_perfil`) VALUES ('$nombre','$tipo','$descripcion','$imagen_contenido','$area','$fk_perfil')";
 
              $result = mysqli_query($link, $valores);
              if($result){
 					echo "exito";
 				
              }else{
-             	echo "error";
+             	echo $nombre;
 
              }
+
+             echo "hola";
 
              break;
 
@@ -40,21 +45,19 @@ case 'editar':
 	
     
 
-			 $id_proyecto=$_POST['id_proyecto'];
+			 $id_proyecto=$_POST['id'];
 			 $nombre=$_POST['nombre'];
              $tipo=$_POST['tipo'];
              $descripcion=$_POST['descripcion'];
              $imagen_temporal=$_FILES['imagen']['tmp_name'] ;
 			$imagen_contenido = addslashes(fread(fopen($imagen_temporal, "rb"), filesize($imagen_temporal)));
 
-			$archivo_temporal=$_FILES['archivo']['tmp_name'] ;
-			$archivo_contenido = addslashes(fread(fopen($archivo_temporal, "rb"), filesize($archivo_temporal)));
+			
              // $imagen=$_POST['imagen'];
              // $archivo=$_POST['archivo'];
              $area=$_POST['area'];
-             $fk_perfil=$_POST['fk_perfil'];
 
-             $valores = "UPDATE `proyecto` SET `nombre`='$nombre' ,`tipo`='$tipo' ,`descripcion`='$descripcion' ,`imagen`='$imagen_contenido' ,`archivo`='$archivo_contenido' ,`area`='$area' WHERE `id_proyecto`='$id_proyecto'";
+             $valores = "UPDATE `proyecto` SET `nombre`='$nombre' ,`tipo`='$tipo' ,`descripcion`='$descripcion' ,`imagen`='$imagen_contenido'  ,`area`='$area' WHERE `id_proyecto`='$id_proyecto'";
 
              $result = mysqli_query($link, $valores);
              if($result){
@@ -69,7 +72,7 @@ break;
 					case 'modificar':
 					
 
-$id_proyecto=$_POST['id_proyecto'];
+$id_proyecto=$_POST['id'];
 
 
 
@@ -85,7 +88,6 @@ $datos = array(
 				2 => $row['tipo'], 
 				3 => $row['descripcion'], 
 				4 => $row['area'], 
-				5 => $row['fk_perfil'], 
 				
 				);
 echo json_encode($datos);

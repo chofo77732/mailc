@@ -16,6 +16,8 @@ session_start();
 	<title>Aplicacion Web</title>
 
     <link rel="stylesheet" href="../Resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Resources/css/tema.css">
+
 
 </head>
  
@@ -39,13 +41,18 @@ session_start();
             </ul>
         </div>
     </nav>
+    <br>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Iniciar Sesion</div>
-                    <div class="panel-body"> 
+
+                    <div class="panel-heading"><img width="50px" height="80px" src="../Resources/img/logo.png"><h1>Iniciar Sesion</h1>
+
+                    
+
                         <div class="alert alert-danger text-center" style="display:none;" id="error">
                             <p>Usuario o Password no identificados</p>
                         </div>                     
@@ -64,7 +71,7 @@ session_start();
                                     <input type="password" class="form-control" id="password" placeholder="Password">
                                 </div>
                             </div>                     
-                            <button type="button" class="btn btn-primary" onclick='confirmar();'><span class="glyphicon glyphicon-lock"></span> Entrar</button>   
+                            <button type="button" class="btn btn-default"  onclick='confirmar();'><span class="glyphicon glyphicon-lock"></span> Entrar</button>   
                         </form>
                     </div>
                 </div>

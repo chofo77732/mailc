@@ -1,9 +1,9 @@
 <?php
 	
 		require_once('conexion.php');
+session_start();
 
-
-		$boton=$_POST['boton'];
+		$boton=$_POST['pro'];
 
 		switch ($boton) {
 
@@ -13,16 +13,19 @@
 			 $nombre=$_POST['nombre'];
              $descripcion=$_POST['descripcion'];
              $tipo=$_POST['tipo'];
+             $fk_perfil=$_SESSION['id'];
              $fk_proyecto=$_POST['fk_proyecto'];
 
-             $valores = "INSERT INTO `grupo`(`nombre`, `descripcion`, `tipo`, `fk_proyecto`) VALUES ('$nombre' ,'$descripcion' ,'$tipo' ,'$fk_proyecto' )";
+
+             $valores = "INSERT INTO `grupo`(`nombre`, `descripcion`, `tipo`, `fk_proyecto`) VALUES ('$nombre' ,'$descripcion' ,'$tipo' , '$fk_proyecto' )";
 
              $result = mysqli_query($link, $valores);
+
              if($result){
 					echo "exito";
 				
              }else{
-             	echo "error";
+             	echo "Solo se puede registrar un grupo por proyecto";
 
              }
 
@@ -32,7 +35,7 @@ case 'editar':
 	
     
 
-			 $id_grupo=$_POST['id_grupo'];
+			 $id_grupo=$_POST['id'];
 			 $nombre=$_POST['nombre'];
              $descripcion=$_POST['descripcion'];
              $tipo=$_POST['tipo'];
@@ -51,7 +54,7 @@ break;
 					case 'modificar':
 					
 
-$id_grupo=$_POST['id_grupo'];
+$id_grupo=$_POST['id'];
 
 
 
@@ -78,6 +81,27 @@ echo json_encode($datos);
 					$id=$_POST['id'];
 
              $valores = "DELETE from grupo WHERE `id_grupo`='$id'";
+
+             $result = mysqli_query($link, $valores);
+             if($result){
+					echo "exito";
+				
+             }else{
+             	echo "error";
+
+             }
+
+
+					
+				break;
+
+						case 'unirse':
+
+					
+					$id=$_POST['id_proyecto'];
+					$perfil=$_POST['user'];
+
+             $valores = "INSERT INTO `user_grupo`(`fk_proyecto`, `fk_perfil`) VALUES ('$id','$perfil')";
 
              $result = mysqli_query($link, $valores);
              if($result){

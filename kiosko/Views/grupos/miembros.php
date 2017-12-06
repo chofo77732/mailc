@@ -25,14 +25,14 @@ session_start();
 <br>
 <br>
 
-<h1>Index Grupos</h1>
+<h1>Miembros</h1>
 
 
 <div class="col-xs-1"></div>
 <div class="col-xs-10">
 
 <br>
-     <button href="javascript:void(0)" data-toggle="modal" data-target="#responsive" type="button" class="btn btn-success">Agregar Grupo</button>
+     <!-- <button href="javascript:void(0)" data-toggle="modal" data-target="#responsive" type="button" class="btn btn-success">Agregar Grupo</button> -->
      <!-- <button OnClick="location.href='inicio2.php'" type="button" class="btn btn-success">Regresar</button>
        -->
     
@@ -60,10 +60,10 @@ session_start();
 
 include('../../Controllers/conexion.php');
 $id_s=$_SESSION['id'];
-
+$id_proyecto=$_GET['id_proyecto'];
 // echo $id_proyecto;
-//$query = "SELECT grupo.* from grupo INNER JOIN proyecto on grupo.fk_proyecto = proyecto.id_proyecto WHERE proyecto.fk_perfil = '$id_s'";
-  $query = "SELECT grupo.* from grupo INNER JOIN proyecto on grupo.fk_proyecto = proyecto.id_proyecto INNER JOIN user_grupo on user_grupo.fk_proyecto = grupo.fk_proyecto where user_grupo.fk_perfil = '$id_s'";  
+$query = "SELECT perfil.nombre, perfil.correo, perfil.carrera from perfil INNER JOIN user_grupo on perfil.id_usuario = user_grupo.fk_perfil where user_grupo.fk_proyecto = '$id_proyecto'";
+    
 $result = mysqli_query($link, $query);
 if ($result) {
   # code...
@@ -72,19 +72,9 @@ if ($result) {
 
                 echo "<tr>
                         <td>".$registro['nombre']."</td>
-                        <td>".$registro['descripcion']."</td>
-                        <td>".$registro['tipo']."</td>
-                        <td><a href='miembros.php?id_proyecto=".$registro['fk_proyecto']."' >Ver Miembros</a></td>
-
-
-                         
-
- <td><a href='javascript:modificar(".$registro['id_grupo'].");' class='glyphicon glyphicon-edit'>Editar</a>
-                      
-                         <a href='javascript:eliminar(".$registro['id_grupo'].");' class='glyphicon glyphicon-remove-circle'>Eliminar</a>
-                         </td>
-
-                               
+                        <td>".$registro['correo']."</td>
+                        <td>".$registro['carrera']."</td>
+                        
 </tr>
 ";
     

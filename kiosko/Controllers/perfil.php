@@ -4,6 +4,7 @@
 
 
 		$boton=$_POST['boton'];
+		session_start();
 
 		switch ($boton) {
 
@@ -39,12 +40,9 @@ case 'editar':
 	
     
 
-			 $id_usuario=$_POST['id_usuario'];
+			 $id_usuario=$_SESSION['id'];
 			 $nombre=$_POST['nombre'];
-             $apellidos=$_POST['apellidos'];
              $sexo=$_POST['sexo'];
-             $correo=$_POST['correo'];
-             $contra=$_POST['contra'];
              $ocupacion=$_POST['ocupacion'];
              $espec_ocupacion=$_POST['espec_ocupacion'];
              $carrera=$_POST['carrera'];
@@ -55,13 +53,12 @@ case 'editar':
              $meta_vida=$_POST['meta_vida'];
              $telefono=$_POST['telefono'];
              $facebook=$_POST['facebook'];
-             $alias=$_POST['alias'];
 
-             $valores = "UPDATE `perfil` SET `nombre`='$nombre', `apellidos`='$apellidos', `sexo`='$sexo', `correo`='$correo', `contra`='$contra', `ocupacion`='$ocupacion', `espec_ocupacion`='$espec_ocupacion', `carrera`='$carrera', `edad`='$edad', `intereses`='$intereses', `habilidades`='$habilidades', `autodescripcion`='$autodescripcion', `meta_vida`='$meta_vida', `telefono`='$telefono', `facebook`='$facebook', `alias`='$alias' WHERE `id_usuario`='$id_usuario'";
+             $valores = "UPDATE `perfil` SET `nombre`='$nombre', `sexo`='$sexo', `ocupacion`='$ocupacion', `espec_ocupacion`='$espec_ocupacion', `carrera`='$carrera', `edad`='$edad', `intereses`='$intereses', `habilidades`='$habilidades', `autodescripcion`='$autodescripcion', `meta_vida`='$meta_vida', `telefono`='$telefono', `facebook`='$facebook' WHERE `id_usuario`='$id_usuario'";
 
              $result = mysqli_query($link, $valores);
              if($result){
-					echo "exito";
+					echo $autodescripcion. $meta_vida. $telefono;
 				
              }else{
              	echo "error";
@@ -72,7 +69,7 @@ break;
 					case 'modificar':
 					
 
-$id_usuario=$_POST['id_usuario'];
+$id_usuario=$_SESSION['id'];
 
 
 

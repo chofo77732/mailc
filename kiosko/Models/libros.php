@@ -11,7 +11,7 @@
 
 		function lista_libros($valor)
 		{
-			$sql="SELECT * FROM libros WHERE titulo_libro like '%".$valor."%' or autor_libro like '%".$valor."%'";
+			$sql="SELECT  `id_proyecto`, `nombre`, `tipo`, `descripcion`, `archivo`, `area`, `fk_perfil` FROM proyecto WHERE nombre like '%".$valor."%' or tipo like '%".$valor."%' or descripcion like '%".$valor."%'";
 			$this->conexion->conexion->set_charset('utf8');
 			$resultados=$this->conexion->conexion->query($sql);
 			$arreglo = array();

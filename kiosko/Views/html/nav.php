@@ -17,7 +17,7 @@
         <li><a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Quienes Somos<span class="caret"></span></a>
         
         <ul class="dropdown-menu">
-        <li><a href="../mision.php">Misión</a></li>
+        <li ><a href="../mision.php">Misión</a></li>
         <li><a href="../vision.php">Visión</a></li>
         </ul>
         </li>
