@@ -46,7 +46,7 @@ session_start();
                
         <!-- Contact Form -->
         <!-- Campos del formulario de contacto con validación de campos-->
-        <div class="row">
+        <div class="row" style=" height: 650px; overflow: scroll;">
             <!-- Columna de la izquierda -->
             <div class="col-md-3">
                 <div class="col-md-12" align="center">
