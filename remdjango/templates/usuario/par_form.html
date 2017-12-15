@@ -1,0 +1,49 @@
+{% extends 'base/base_participantes.html' %}
+
+
+{% block modal %}
+
+  <div Matriz de rastreabilidad>
+     <div agregar class="container">
+        <div class="row">
+          <div id="user_modal" class="modal modal-fixed-footer">
+            
+               <nav class="nav-extended">
+ <div class="nav-content">
+                     <ul class="tabs tabs-transparent">
+                       <li class="tab">USER</li>
+                     </ul>
+                   </div>
+
+               </nav>
+  <div id="mtestRequisitosInf1" class="col s12">
+      <div class="container">
+          <div class="row">
+            
+            <div class="row">
+<form method="post">
+  <h4>Sign Up</h4>
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button class="btn waves-effect waves-light" type="submit">Registrar</button>
+</form>
+  </div>
+
+    </div>
+   </div>
+  </div>
+
+
+                {% endblock %}
+
+{% block abrir %}
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('#user_modal').modal('open');
+
+
+  });
+</script>
+      {% endblock %}

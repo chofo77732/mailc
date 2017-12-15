@@ -1,0 +1,334 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	{% block extrahead %}
+	{% endblock %}
+
+   <link rel="Shortcut Icon" type="images/x-icon"  />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>uprem</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleNav.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/material-design-iconic-font.min.css' %}">
+
+</head>
+<body >
+		{% block navbar %}
+
+	
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <a class="brand-logo" href="{% url 'proyecto:index' %}">UPREM</a>
+          <!-- Modal Nuevo y Abrir Proyecto -->
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:38%; top:10%" href="{% url 'proyecto:proyecto_crear' %}">Nuevo Proyecto</a>
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:55%; top:10% " href="{% url 'proyecto:proyecto_listar' %}">Abrir Proyecto</a>
+      
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:85%; top:10% " href="{% url 'usuario:user_listar' %}">Participantes</a>
+
+        </div>
+<!--         <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="#test1">Reqisitos de Sistema</a></li>
+            <li class="tab"><a href="#test2">Análisis del Sistema</a></li>
+            <li class="tab"><a href="#test3">Conflictos y Defectos</a></li>
+            <li class="tab"><a href="#test4">Peticiones de Cambio</a></li>
+            <li class="tab"><a href="#test1">Peticiones de Cambio</a></li>
+          </ul>
+        </div> -->
+   </nav>
+  <nav>
+    <ul>
+          <li><a href="#">Requsitos de Sistema</a>
+            <ul>
+
+<!--                   <li><a><i class="material-icons right">assignment</i>Portada</a>
+                  <ul>
+                      <li><a href="#portada" ><i class="material-icons right">add_box</i> NuevaPortada</a></li>
+                      <li><a href="#portada2" ><i class="material-icons right">create</i>Modificar Portada</a></li>
+                      
+                  </ul>
+                  </li>
+ -->
+                   <li><a><i class="material-icons right">gps_fixed</i>Objetivos</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_objetivo' %}" ><i class="material-icons right">add_box</i>Nuevo Objetivo</a></li>
+                      <li><a href="{% url 'requisitos:listar_objetivo' %}" ><i class="material-icons right">create</i>Modif/Elimin. Objetivo</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">accessibility</i>Gestión de Actores</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_actor' %}" ><i class="material-icons right">add_box</i>Nuevo Actor</a></li>
+                      <li><a href="{% url 'requisitos:listar_actor' %}" ><i class="material-icons right">create</i>Modif/Elimin. Actor</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">assignment</i>Requisitos de Información</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_ri' %}" ><i class="material-icons right">add_box</i>Nuevo Requisito</a></li>
+                      <li><a href="{% url 'requisitos:listar_ri' %}"><i class="material-icons right">create</i>Modif/Elimin. Requisito</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">error_outline</i>Requisitos de Restricción</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_rr' %}" ><i class="material-icons right">add_box</i>Nuevo Requisito de Restricción</a></li>
+                      <li><a href="{% url 'requisitos:listar_rr' %}" ><i class="material-icons right">create</i>Modif/Elimin. Requisito de Restricción</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">recent_actors</i>Casos de uso</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_cu' %}" ><i class="material-icons right">add_box</i>Nuevo Caso de Uso</a></li>
+                      <li><a href="{% url 'requisitos:listar_cu' %}"  ><i class="material-icons right">create</i>Modif/Elimin. Caso de Uso</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">offline_pin</i>Requisitos Funcionales</a>
+                  <ul>
+                     <li><a href="{% url 'requisitos:nuevo_rf' %}" ><i class="material-icons right">add_box</i>Nuevo requisito Funcional</a></li>
+                      <li><a href="{% url 'requisitos:listar_rf' %}" ><i class="material-icons right">create</i>Modif/Elimin. requisito Funcional</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">cancel</i>Requisitos no Funcionales</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_rnf' %}" ><i class="material-icons right">add_box</i>Nuevo Requisito no Funcional</a></li>
+                      <li><a href="{% url 'requisitos:listar_rnf' %}" ><i class="material-icons right">create</i>Modif/Elimin. Requisito no Funcional</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">image_aspect_ratio</i>Matriz de Rastreabilidad</a>
+                  <ul>
+                      <li><a href="{% url 'requisitos:nuevo_matriz' %}" ><i class="material-icons right">add_box</i>Nueva Matriz de Rastreabilidad</a></li>
+                      <li><a href="{% url 'requisitos:listar_matriz' %}" ><i class="material-icons right">create</i>Modif/Elimin. Matriz de Rastreabilidad</a></li>
+                      
+                  </ul>
+                  </li>
+              </ul>
+          </li>
+            <li><a>Análisis del Sistemas</a>
+              <ul>
+                  <li><a> <i class="material-icons right">receipt</i>Descripcion Asociaciones</a>
+                   <ul>
+                      <li><a href="{% url 'analisis:crear_aso' %}"><i class="material-icons right"> library_add</i>Nueva Descripcion</a></li>
+                      <li><a href="{% url 'analisis:listar_aso' %}"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+                  <li><a> <i class="material-icons right">list</i>Diagrama de Secuencia</a>
+                  <ul>
+                      <li><a href="{% url 'analisis:crear_ds' %}"><i class="material-icons right">library_add</i>Nuevo Diagrama</a></li>
+                      <li><a href="{% url 'analisis:listar_ds' %}"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+                  <li><a> <i class="material-icons right">tab</i>Roles y Asociaciones</a>
+                  <ul>
+                      <li><a href="{% url 'analisis:crear_roles' %}"><i class="material-icons right">library_add</i>Nueva Rol</a></li>
+                      <li><a href="{% url 'analisis:listar_roles' %}"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+
+
+                 <!--  <li><a> <i class="material-icons right">library_books</i>Tipos</a>
+                        <ul>
+                      <li><a href="#modal6leo" ><i class="material-icons right"> library_add</i>Nuevo tipo</a></li>
+                      <li><a href="#modal6leo2"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                  </ul>
+                  </li>
+                   <li><a> <i class="material-icons right">import_contacts</i>Catalogo de operacion del sistema</a>
+                        <ul>
+                      <li><a href="#modal7leo"><i class="material-icons right"> library_add</i>Nuevo catalogo</a></li>
+                      <li><a href="#modal7leo2"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                  </ul>
+                  </li> -->
+              </ul>
+                        <li href="#"><a >Conflictos y Defectos</a>
+                <ul>
+                  
+                  <li><a><i class="material-icons right">swap_calls</i>Conflictos</a>
+                  <ul>
+                      <li><a href="{% url 'conflictos:crear_con' %}" ><i class="material-icons right"> library_add</i>Nuevo Conflicto</a></li>
+                      <li><a href="{% url 'conflictos:listar_con' %}" ><i class="material-icons right">mode_edit</i>Modif/Elimin Conflictos</a></li>
+                      
+                  </ul>
+                  </li>
+                 
+                  <li><a><i class="material-icons right">domain</i>Defectos</a>
+                  <ul>
+                      <li><a href="{% url 'conflictos:crear_def' %}" ><i class="material-icons right"> library_add</i>Nuevo Defecto</a></li>
+                      <li><a href="{% url 'conflictos:listar_def' %}" ><i class="material-icons right">mode_edit</i>Modif/Elimin Defectos</a></li>
+
+                  </ul>
+                      </li>
+              </ul>
+            </li>
+          <li><a href="#">Peticiones de Cambio</a>
+            <ul>
+
+              <li><a href="{% url 'cambios:crear_cambio' %}" ><i class="material-icons right"> library_add</i>Nuevo Cambio</a></li>
+                      <li><a href="{% url 'cambios:listar_cambio' %}" ><i class="material-icons right">mode_edit</i>Modif/Elimin Cambios</a></li>
+
+              </ul>
+          </li>
+            
+        </ul>
+  </nav> 
+
+{% endblock %}
+
+
+ </div>
+
+{% block actor %}
+
+
+  <div Actores>
+     <div agregar class="container">
+        <div class="row">
+          <div id="gestionActor" class="modal modal-fixed-footer">
+               <nav class="nav-extended">
+    
+                   <div class="nav-content">
+                     <ul class="tabs tabs-transparent">
+                       <li class="tab"><a href="#mtestActor1">General</a></li>
+                       <li class="tab"><a href="#mtestActor2">Descripción</a></li>
+                       
+                     </ul>
+                   </div>
+               </nav>
+  <div id="mtestActor1" class="col s12">
+      <div class="container">
+          <div class="row">
+            <h4>Nuevo Actor</h4>
+            {% block actor1 %}
+            {% endblock %}
+          </div>
+      </div>
+  </div>
+  <div id="mtestActor2" class="col s12">
+  <div class="container">
+  <div class="row">
+      <h4>Descripción</h4>
+        <div class="row">
+        {% block actor2 %}
+        {% endblock %}
+        </div>
+  </div>
+ </div>
+  </div>
+    <div class="modal-footer">
+{% block actor3 %}
+{% endblock %}
+    </div>
+   </div>
+  </div>
+ </div>
+ </div>
+{% endblock %}
+
+  {% block modal %}
+    {% endblock %}
+
+
+
+
+
+
+
+  </div>
+   {%block proyecto%}
+
+  <div class="container" >
+    <div class="row">
+      
+
+
+<div style="background: #ffffff;">
+	{% block content %}
+	<h4>	Indice		</h4>
+	{% endblock %}
+
+</div>
+
+  {%block requi%}
+  {% endblock%}
+    </div>
+
+  </div>
+  {% endblock%}
+
+{% block marco %}
+       <div id="test1" class="col s12" >
+<div class="container">
+  <div class="row">
+<!-- <button onclick="tabla()">try</button> -->
+<!-- <iframe href="#" style="border:none; width:100%; height:5000px;" ></iframe> -->
+             
+  </div>
+</div>
+   </div>
+{% endblock%}
+
+
+
+
+  <div class="fixed-action-btn vertical click-to-toggle">
+    <a class="btn-floating btn-large blue">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      
+<!--       <li><a class="btn-floating green" href="reporte.php"><i class="material-icons">picture_as_pdf</i></a></li>
+      <li><a class="btn-floating blue" href="reporte3.php"><i class="material-icons">attach_file</i></a></li>
+      <li><a class="btn-floating blue" href="reporte2.php"><i class="material-icons">attach_file</i></a></li>
+      <li><a class="btn-floating blue" href="reporte4.php"><i class="material-icons">attach_file</i></a></li> -->
+
+      <li><a class="btn-floating blue" href="{% url 'logout' %}"><i class="material-icons">settings_power</i></a></li>
+    </ul>
+  </div>
+
+<script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/eventos.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/funcions.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/proceso.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/ready.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/Stylebtn.js' %}"></script>   
+
+
+
+
+
+    <script>
+    $( document ).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+    $(".button-collapse").sideNav();
+    $('.modal').modal();
+    $('.slider').slider();
+    $('select').material_select();
+    $('select').material_select('destroy');    
+    $('select').material_select();    
+    }); 
+     $(document).ready(function() {
+    
+    });
+    
+  </script>
+
+{% block abrir %}
+
+      {% endblock %}
+
+</body>
+</html>

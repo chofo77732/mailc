@@ -1,0 +1,75 @@
+body{
+    background: #A4A4A4;
+    /*background: #ffffff;*/
+    font-family: Arial;
+}
+
+nav{
+    background: #424242;
+}
+
+/*estilos Generales*/
+nav ul{
+    list-style: none;
+    padding: 0;
+}
+
+nav li{
+    line-height: 3rem;
+    position: relative;
+}
+
+nav li ul {
+    position: absolute;
+}
+
+nav a{
+    color: #add;
+    display: block;
+    padding: 0 2.5em;
+    text-decoration: none;
+    transition: .4s;
+}
+
+nav a:hover{
+    background:rgba(0,0,0,.5);
+}
+
+nav li ul{
+   display: none;
+}
+
+nav li:hover > ul{
+    display: block;
+}
+
+
+/* primer nivel*/
+nav > ul{
+    background: #333;
+    display: table;
+    
+}
+
+nav > ul > li{
+    float: left;
+   
+}
+/* segundo nivel*/
+
+nav li li {
+    background: #00695c;
+    width: 200px;
+}
+
+nav > ul > li >{
+    top: 100%;
+}
+/* tercer nivel*/
+nav ul ul ul{
+    left: 100%;
+    top: 0;
+}
+
+
+

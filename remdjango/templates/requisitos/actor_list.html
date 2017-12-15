@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+<h3>Actores</h3>
+<table class="table table-bordered responsive-table">
+  <thead>
+    <tr>
+      <td>nombre</td>
+      <td>version</td>
+      <td>fuentes</td>
+      <td>descripcion</td>
+      <td>comentario</td>
+      <td>projecto</td>
+      <td>Fecha de Creación</td>
+      <td>Fecha de Modificación</td>
+      <td>Opciones</td>
+      
+      <td></td>
+    </tr>
+    
+  </thead>
+  <tbody>
+
+{% if object_list %}
+    {% for p in object_list %}
+    <tr>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.version }}</td>
+      <td>{{ p.fuentes }}</td>
+      <td>{{ p.descripcion }}</td>
+      <td>{{ p.comentario }}</td>
+      <td>{{ p.projecto.nombre }}</td>
+      <td>{{ p.fecha_creacion }}</td>
+      <td>{{ p.fecha_actualizacion }}</td>
+      
+      <td>
+        <a class="btn btn-primary" href="{% url 'requisitos:editar_actor' p.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'requisitos:eliminar_actor' p.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+    
+    {% else %}
+    <h4>No hay registros de actores</h4>
+    {% endif %}
+  </tbody>
+</table> 
+
+    {% if page_obj.has_previous %}
+         <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+       <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.next_page_number }}">Next</a> 
+      {% endif %}
+
+
+{% endblock%}
+{% block marco %}
+{% endblock %}

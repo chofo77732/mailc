@@ -1,0 +1,142 @@
+{% extends 'base/base.html' %}
+
+
+{% block actor %}
+{% endblock %}
+
+{% block modal %}
+
+  <div Casos de uso>
+      <div agregar class="container">
+        <div class="row">
+          <div id="cambio" class="modal modal-fixed-footer">
+               <nav class="nav-extended">
+    
+                   <div class="nav-content">
+                     <ul class="tabs tabs-transparent">
+                       <li class="tab"><a href="#mtestRequisitosInf1">Petición de cambio</a></li>
+                     </ul>
+                   </div>
+               </nav>
+  <div id="mtestRequisitosInf1" class="col s12">
+      <div class="container">
+          <div class="row">
+            
+            <h4>General</h4>
+            <div class="row">
+
+              <form  method="POST">
+              {% csrf_token %}
+
+                  <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.nombre }}
+                  <label for="icon_telephone">Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.projecto }}
+                  <label for="icon_telephone">Proyecto</label>
+                </div>
+            
+            <div class="input-field col s6">
+                  <i class="material-icons prefix">people</i>
+                  <label for="icon_telephone">Versión</label>
+                  {{ form.version }}
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.referencia }}
+                  <label for="icon_prefix">Referencia</label>
+                </div>
+                
+            
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.responsable }}
+                  <label for="icon_prefix">Responsables</label>
+                </div>
+      
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">people</i>
+                  <label for="icon_telephone">Proponente</label>
+                  {{ form.proponente }}
+                </div>
+                
+<br>
+
+                <h4>Detalle</h4>
+                <br>
+                <br>
+
+                 <div class="input-field col s6">
+                  <i class="material-icons prefix">people</i>
+                  {{ form.cambio }}
+                  <label for="precondicion_cu">Cambio</label>
+                </div>
+           
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  {{ form.descripcion }}
+                  <label for="icon_prefix">Descripción</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.revisado_por }}
+                  <label for="postcondicion_cu">Revisado_por</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.fecha_revision }}
+                  <label for="fe_cu">fecha_revision</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.aprovado_por }}
+                  <label for="postcondicion_cu">aprovado_por</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.fecha_aprovacion }}
+                  <label for="fe_cu">fecha_aprovacion</label>
+                </div>
+                
+                <br>
+                
+                <br>
+  
+      <h4>Comentario</h4>
+
+             <div class="input-field col s12">
+               {{ form.comentario }}
+               <label for="textarea1">Comentario</label>
+             </div>
+          
+
+
+ <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+  </div>
+
+    </div>
+   </div>
+  </div>
+
+
+                {% endblock %}
+
+{% block abrir %}
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('#cambio').modal('open');
+
+
+  });
+</script>
+      {% endblock %}

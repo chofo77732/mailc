@@ -1,0 +1,12 @@
+{% extends 'base/base_participantes.html' %}
+
+{% block parti %}
+<form method="post">
+	{% csrf_token %}
+	<h3>Seguro de eliminar {{object.username}}</h3>
+	<button class="btn btn-danger" type="submit">Si, eliminar</button>
+	<a class="btn btn-default" href="{%url 'usuario:user_eliminar'%}">Cancelar</a>
+</form>
+
+{% endblock %}
+

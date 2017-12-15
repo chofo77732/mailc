@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+	{% block content %}
+	
+<form class="col s12" method="POST" style="background: #ffffff;">
+	{% csrf_token %}
+
+            <h4>Nuevo Proyecto</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  <label for="{{form.nombre.name}}">{{form.nombre.label}}</label>
+                  {{form.nombre}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  <label for="{{form.version.name}}">{{form.version.label}}</label>
+                  {{form.version}}
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">people</i>
+                  <label for="{{form.por.name}}">{{form.por.label}}</label>
+                  {{form.por}}
+                </div>
+            </div> 
+            <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  <label for="{{form.para.name}}">{{form.para.label}}</label>
+                  {{form.para}}
+                </div>
+            </div>   
+            <br>
+             <button class="btn btn-primary" type="submit">Guardar</button>
+
+</form>
+{% endblock %}
+{% block marco %}
+{% endblock %}

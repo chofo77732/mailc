@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+
+th {
+    width:25%;
+    text-align: left;
+    background-color: #CEE3F6;
+}
+
+body {
+   
+    background-color: white;
+}
+</style>
+
+<title></title>
+</head>
+<body>
+
+<section style='text-align: center; font-family: arial'>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	<h3>Nombre del proyecto: {{proyecto.nombre}}</h3>
+	<br>
+<h1>Documento de Análisis del Sistema</h1>
+<br>
+<h3>Versión: {{proyecto.version}}</h3>
+<br>
+<h3>Fecha: {{proyecto.fecha}}</h3>
+<br>
+<h2>Preparado para:</h2>
+<br>
+<h3>{{proyecto.para}}</h3>
+<br>
+<h2>Preparado por:</h2>
+<br>
+<h3>{{proyecto.por}}</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section>
+
+<hr>
+<br>
+<h3>Indice</h3>
+
+<ul>
+
+{% if aso %}
+<li><h4><a href='#asociacion'>Descripción de asociación</a></h4></li>
+{% endif %} 
+
+{% for p in aso %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+{% if ds %}
+<li ><h4><a href='#secuencia'>Diagramas de secuencia</a></h4></li>
+{% endif %} 
+
+{% for p in ds %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+{% if rol %}
+<li><h4><a href='#rol'>Roles</a></h4></li>
+{% endif %} 
+
+{% for p in rol %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+
+<br>
+</ul>
+
+<br>
+
+<hr>
+{% if aso %}
+<h3 id="asociacion">Descripción de Asociacion</h3>
+{% endif %} 
+{% for p in aso %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+<tr>
+<th>Tipo</th>
+<td>{{p.tipo}}</td>
+</tr>
+
+<tr>
+<th>Requisitos</th>
+<td>{{p.requisitos}}</td>
+</tr>
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_actualizacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_creacion}}</td>
+</tr>
+</table>
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+
+<br>
+
+{% endfor %}
+
+{% if ds %}
+<h3 id="secuencia">Diagramas de Secuencia</h3>
+{% endif %} 
+{% for p in ds %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+
+<tr>
+<th>Diagrama</th>
+<td>{{p.diagrama}}</td>
+</tr>
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+
+</table>
+
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_creacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_actualizacion}}</td>
+</tr>
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+
+
+<br>
+
+{% endfor %}
+{% if rol %}
+<h3 id="rol">Roles y asociaciones</h3>
+{% endif %} 
+{% for p in rol %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+
+<tr>
+<th>Tipo</th>
+<td>{{p.tipo}}</td>
+</tr>
+
+<tr>
+<th>Multiplicidad</th>
+<td>{{p.multiplicidad}}</td>
+</tr>
+
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+
+
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_creacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_actualizacion}}</td>
+</tr>
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+ <br>
+
+{% endfor %}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+
+th {
+    width:25%;
+    text-align: left;
+    background-color: #CEE3F6;
+}
+
+body {
+   
+    background-color: white;
+}
+</style>
+
+<title></title>
+</head>
+<body>
+
+<section style='text-align: center; font-family: arial'>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	<h3>Nombre del proyecto: {{proyecto.nombre}}</h3>
+	<br>
+<h1>Documento de Peticiones de cambio</h1>
+<br>
+<h3>Versión: {{proyecto.version}}</h3>
+<br>
+<h3>Fecha: {{proyecto.fecha}}</h3>
+<br>
+<h2>Preparado para:</h2>
+<br>
+<h3>{{proyecto.para}}</h3>
+<br>
+<h2>Preparado por:</h2>
+<br>
+<h3>{{proyecto.por}}</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section>
+
+<hr>
+<br>
+<h3>Indice</h3>
+
+<ul>
+
+{% if cam %}
+<li><h4><a href='#cambios'>Cambios</a></h4></li>
+{% endif %} 
+
+{% for p in cam %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+
+
+<br>
+</ul>
+
+<br>
+
+<hr>
+{% if cam %}
+<h3 id="cambios">Cambios</h3>
+{% endif %} 
+{% for p in cam %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+<tr>
+<th>Versión</th>
+<td>{{p.version}}</td>
+</tr>
+
+<tr>
+<th>Fuentes</th>
+<td>{{p.fuentes}}</td>
+
+</tr>
+
+<tr>
+<th>Responsables</th>
+<td>{{p.responsable}}</td>
+</tr>
+
+
+<tr>
+<th>Referencia</th>
+<td>{{p.referencia}}</td>
+</tr>
+
+<tr>
+<th>Cambio</th>
+<td>{{p.cambio}}</td>
+</tr>
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+
+<tr>
+<th>Proponente</th>
+<td>{{p.proponente}}</td>
+</tr>
+
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Revisado por</th>
+<td>{{p.revisado_por}}</td>
+
+<th>Fecha de revisión</th>
+<td>{{p.fecha_revision}}</td>
+</tr>
+<tr>
+<th>Aprovado por</th>
+<td>{{p.aprovado_por}}</td>
+
+<th>Fecha de aprovación</th>
+<td>{{p.fecha_aprovacion}}</td>
+</tr>
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_actualizacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_creacion}}</td>
+</tr>
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+
+<br>
+
+{% endfor %}

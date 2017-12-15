@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+<h3>Matriz de rastreabilidad</h3>
+<table class="table table-bordered responsive-table">
+  <thead>
+    <tr>
+      <td>nombre</td>
+      <td>traza</td>
+      <td>comentario</td>
+      <td>fecha  de Creación</td>
+      <td>fecha de Modificación</td>
+      <td>Opciones</td>
+      
+      <td></td>
+    </tr>
+    
+  </thead>
+  <tbody>
+
+{% if object_list %}
+    {% for p in object_list %}
+    <tr>
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.trazar }}</td>
+      <td>{{ p.comentario}}</td>
+      <td>{{ p.fecha_creacion }}</td>
+      <td>{{ p.fecha_actualizacion }}</td>
+
+      <td>
+        <a class="btn btn-primary" href="{% url 'requisitos:editar_matriz' p.id %}">Ver, Editar</a>
+        <a class="btn btn-danger" href="{% url 'requisitos:eliminar_matriz' p.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+    
+    {% else %}
+    <h4>No hay registros de matrices</h4>
+    {% endif %}
+  </tbody>
+</table> 
+
+    {% if page_obj.has_previous %}
+         <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+       <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.next_page_number }}">Next</a> 
+      {% endif %}
+
+{% endblock%}
+{% block marco %}
+{% endblock %}

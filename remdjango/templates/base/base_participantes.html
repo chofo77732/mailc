@@ -1,0 +1,105 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- <link rel="Shortcut Icon" type="images/x-icon" href="media/icons/uno.png" /> -->
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>uprem</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleNav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+   
+       <nav class="nav-extended">
+    
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">UPREM</a>
+      
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:85%; top:10% " href="{% url 'requisitos:index' %}">Volver..</a>
+      
+    </div>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+      </ul>
+    </div>
+    
+  </nav>
+
+    <h2> Administración de Participantes de proyecto</h2>  
+    <div class="well well-small">
+    <hr class="soft"/>
+    <a class="btn btn-primary" href="{% url 'usuario:user_crear' %}">Crear usuario</a>
+    <h4>Tabla de Participantes</h4>
+    <div class="row-fluid">
+    
+      <!-- <div class="container" >
+    <div class="row"> -->
+      
+<div style="background: #ffffff;">
+  {% block parti %}
+  <h4>  Indice    </h4>
+  {% endblock %}
+</div>
+
+<!--     </div>
+  </div> -->
+
+
+
+    
+    
+    <div class="span8">
+    
+    </div>  
+    </div>  
+    <br/>
+
+<!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+{% block modal %}
+{% endblock %}
+    
+    
+    </div>
+<script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/materialize.js' %}"></script> 
+
+    <script>
+    $( document ).ready(function(){}) 
+    $('.tooltipped').tooltip({delay: 50});
+    $(".button-collapse").sideNav();
+    $('.modal').modal();
+    $('.slider').slider();
+   
+        
+        $('.fixed-action-btn').openFAB();
+  $('.fixed-action-btn').closeFAB();
+  $('.fixed-action-btn.toolbar').openToolbar();
+  $('.fixed-action-btn.toolbar').closeToolbar();
+    </script>
+    <script> $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  }); </script>
+
+  {% block abrir %}
+{% endblock %}
+</body>
+</html>

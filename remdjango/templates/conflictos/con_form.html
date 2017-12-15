@@ -1,0 +1,154 @@
+{% extends 'base/base.html' %}
+
+
+{% block actor %}
+{% endblock %}
+
+{% block modal %}
+
+  <div Casos de uso>
+      <div agregar class="container">
+        <div class="row">
+          <div id="conflictos" class="modal modal-fixed-footer">
+               <nav class="nav-extended">
+    
+                   <div class="nav-content">
+                     <ul class="tabs tabs-transparent">
+                       <li class="tab"><a href="#mtestRequisitosInf1">Conflicto</a></li>
+                     </ul>
+                   </div>
+               </nav>
+  <div id="mtestRequisitosInf1" class="col s12">
+      <div class="container">
+          <div class="row">
+            
+            <h4>General</h4>
+            <div class="row">
+
+              <form  method="POST">
+              {% csrf_token %}
+
+                  <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.nombre }}
+                  <label for="icon_telephone">Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.projecto }}
+                  <label for="icon_telephone">Proyecto</label>
+                </div>
+            
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.version }}
+                  <label for="icon_prefix">Versión</label>
+                </div>
+                
+            
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.fuentes }}
+                  <label for="icon_prefix">Fuentes</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">people</i>
+                  <label for="icon_telephone">Autores</label>
+                  <br>
+                  {{ form.autores }}
+                </div>
+<br>
+
+                <h4>Detalle</h4>
+                <br>
+                <br>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  {{ form.descripcion }}
+                  <label for="icon_prefix">Descripción</label>
+                </div>
+                
+                 <div class="input-field col s6">
+                  <i class="material-icons prefix">people</i>
+                  {{ form.conflicto_obj }}
+                  <label for="precondicion_cu">Objetivos</label>
+                </div>
+           
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.requerimiento }}
+                  <label for="postcondicion_cu">Requerimiento</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.solucion_alt }}
+                  <label for="fe_cu">Solución alternativa</label>
+                </div>
+                
+              
+                  <div class="input-field col s12">
+                  <i class="material-icons prefix">subject</i>
+                  <br>
+                    {{ form.solucion }}
+                  <label>Solucón</label>
+                  </div>
+            <h4>Prioridad</h4>
+
+                <br>
+                <br>
+                <div class="input-field col s12">
+                 <i class="material-icons prefix">subject</i>
+                  {{ form.importancia }}
+                  <label>Importancia</label>
+                </div>
+                <div class="input-field col s12">
+                 <i class="material-icons prefix">perm_device_information</i>
+                  {{ form.urgencia }}
+                  <label>Urgencia</label>
+                </div>
+                <div  class="input-field col s12">
+                 <i class="material-icons prefix">list</i>
+                  {{ form.estado }}
+                  <label>Estado</label>
+                </div>
+           <div class="input-field col s12">
+                 <i class="material-icons prefix">assessment</i>
+                  {{ form.estabilidad }}
+                  <label>Estabilidad</label> 
+                </div>
+                <br>
+                
+                <br>
+  
+      <h4>Comentario</h4>
+
+             <div class="input-field col s12">
+               {{ form.comentario }}
+               <label for="textarea1">Comentario</label>
+             </div>
+          
+
+
+ <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+  </div>
+
+    </div>
+   </div>
+  </div>
+
+
+                {% endblock %}
+
+{% block abrir %}
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('#conflictos').modal('open');
+
+
+  });
+</script>
+      {% endblock %}

@@ -1,0 +1,157 @@
+{% load staticfiles %}
+
+
+{% block navbar%}
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block extrastatic %}
+  {% endblock %}
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {% block title %}
+    <title>UPREM</title>
+
+{% endblock %}
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleNav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        iframe{
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+  
+   <nav class="navbar navbar-default">
+    <div class="nav-wrapper">
+          <a class="brand-logo right">UPREM</a>
+          <div class="container">
+          
+        <div class="row" style="text-align: left;">
+           
+            <a href="{% url 'usuario:login' %}" class="waves-effect wabes-orange btn modal-trigger" class="z-depth-5" >LOG IN</a>
+            <a href="{% url 'usuario:registrar_user' %}" class="waves-effect wabes-orange btn modal-trigger" class="z-depth-5" >Sing in</a>
+         </div>
+         
+    </div>
+    </div>
+      </nav>
+      {% block hola %}
+
+      {% endblock %}
+    <div class="container">
+        <div class="row">
+          <div id="modal1" class="modal modal-fixed-footer">
+                <div class="modal-content" style="text-align: center;">
+<div class="container">
+  <div class="row">
+    
+    <form class="col s12" method="POST">
+      {% csrf_token %}
+    {{ form.as_p }}
+       <h4>LOGIN</h4>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+      
+    </form>
+  </div>
+      </div>
+     </div>
+    <div class="modal-footer">
+    </div>
+   </div>
+  </div>
+ </div>
+    <div class="container">
+        <div class="row">
+          <div id="modal2" class="modal modal-fixed-footer">
+                <div class="modal-content" style="text-align: center;">
+<div class="container">
+  <div class="row">
+{% block content %}
+<form method="post">
+  <h4>Sign Up</h4>
+  {% csrf_token %}
+  {{ usuario.as_p }}
+
+  <button class="btn waves-effect waves-light" type="submit">Registrar</button>
+</form>
+
+    {% endblock %}
+  </div>
+      </div>
+     </div>
+   </div>
+  </div>
+ </div>
+
+
+
+   <div class="slider ">
+    <ul class="slides">
+      <li>
+        <img src="https://bib.us.es/educacion/sites/bib3.us.es.educacion/files/pictures/salas_grupo.png"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Qué es UPREM?</h3>
+          <h5 class="light grey-text text-lighten-3">UPREM, es el nuevo sistema web que facilita y mejora el control de documentación de desarrollo de software.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://www.gresb.com/sites/default/files/startup-849805_1280.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>VENTAJAS</h3>
+          <h5 class="light grey-text text-lighten-3">-Mejor manejo de información <br> -Alto control de procesos</h5>
+        </div>
+      </li>
+      <li>
+        <img src="http://2.bp.blogspot.com/-1hhm6eU-4_Q/VmWM-izosiI/AAAAAAAALTU/Amue2McwTx4/s1600/DSC00346.JPG"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>CONTACTANOS</h3>
+          <h5 class="light grey-text text-lighten-3">-FACEBOOK <br></h5>
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+  
+   <script type="text/javascript" src="{% static 'js/jquery-3.1.1.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/materialize.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/eventos.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/funcions.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/proceso.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/ready.js' %}"></script>   
+<script type="text/javascript" src="{% static 'js/Stylebtn.js' %}"></script>  
+
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('.modal').modal();
+    // $('#modal1').modal('open');
+
+
+  });
+</script>
+{% block abrir %}
+
+{% endblock %}
+    <script>
+
+        $(document).ready(function(){
+      $('.slider').slider();
+    });
+    </script>
+    {% block extrajs %}
+  {% endblock %}
+</body>
+</html>

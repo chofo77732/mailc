@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+
+
+{% block proyecto %}
+<div style="background: #ffffff;">
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>nombre</td>
+			<td>version</td>
+			<td>por</td>
+			<td>para</td>
+			<td>Fecha de creación</td>
+			<td></td>
+		</tr>
+		
+	</thead>
+	<tbody>
+{% if object_list %}
+		{% for p in object_list %}
+		<tr>
+			<td>{{ p.nombre }}</td>
+			<td>{{ p.version }}</td>
+			<td>{{ p.por }}</td>
+			<td>{{ p.para }}</td>
+			<td>{{ p.fecha }}</td>
+			
+			<td>
+				<a class="btn btn-primary" href="{% url 'proyecto:proyecto_editar' p.id %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'proyecto:proyecto_eliminar' p.id %}">Eliminar</a>
+				
+			</td>
+			<td>
+
+<ul id="dropdown{{p.id}}" class="dropdown-content">
+  <li><a href="{% url 'proyecto:pdf' p.id %}"><i class="material-icons prefix">open_in_browser</i>Requisitos del sistema</a></li>
+  <li><a href="{% url 'proyecto:pdf_ana' p.id %}"><i class="material-icons prefix">open_in_browser</i>Análisis del sistema</a></li>
+  <li><a href="{% url 'proyecto:pdf_con' p.id %}"><i class="material-icons prefix">open_in_browser</i>Conflictos y defectos</a></li>
+  <li><a href="{% url 'proyecto:pdf_cam' p.id %}"><i class="material-icons prefix">open_in_browser</i>Peticiones de cambio</a></li>
+</ul>
+
+  <div class="nav-wrapper">
+    <ul class="left hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button btn btn-primary" href="#!" data-activates="dropdown{{p.id}}">Abrir<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+  
+
+                </td>
+
+                <td>
+
+                <ul id="descar{{p.id}}" class="dropdown-content">
+  <li><a href="{% url 'proyecto:descargar_pdf' p.id %}"><i class="material-icons prefix">file_download</i>Requisitos del sistema</a></li>
+  <li><a href="{% url 'proyecto:descargar_pdf_ana' p.id %}"><i class="material-icons prefix">file_download</i>Análisis del sistema</a></li>
+  <li><a href="{% url 'proyecto:descargar_pdf_con' p.id %}"><i class="material-icons prefix">file_download</i>Conflictos y defectos</a></li>
+  <li><a href="{% url 'proyecto:descargar_pdf_cam' p.id %}"><i class="material-icons prefix">file_download</i>Peticiones de cambio</a></li>
+</ul>
+
+  <div class="nav-wrapper">
+    <ul class="left hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button btn btn-primary" href="#!" data-activates="descar{{p.id}}">Descargar<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+
+			</td>
+		</tr>
+
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de solicitudes</h1>
+		{% endif %}
+	</tbody>
+</table> 
+
+    {% if page_obj.has_previous %}
+         <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+       <a class="waves-effect waves-light btn modal-trigger center-align"  href="?page={{ page_obj.next_page_number }}">Next</a> 
+      {% endif %}
+      
+    </div>
+{% endblock%}
+{% block marco %}
+{% endblock %}

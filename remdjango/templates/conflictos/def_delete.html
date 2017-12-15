@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>Seguro de eliminar Defecto "{{object.nombre}}"</h3>
+	<button class="btn btn-danger" type="submit">Si, eliminar</button>
+	<a class="btn btn-default" href="{%url 'conflictos:listar_def'%}">Cancelar</a>
+</form>
+
+{% endblock %}
+
+{% block marco %}
+{% endblock %}
+
+{% block abrir %}
+{% endblock %}

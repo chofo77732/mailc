@@ -1,0 +1,18 @@
+nav.navbar ul.nav li {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+ 
+/* cambiar el color de fondo a la barra */
+nav.navbar {
+    background-color: #424242;
+}
+
+.nav-extended{
+    background-color: #424242;
+}
+
+#2nav {
+
+	background-color: #424242;
+
+}

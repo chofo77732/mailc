@@ -1,0 +1,75 @@
+{% extends 'base/base.html' %}
+
+
+
+	
+{% block actor1 %}
+<form method="POST">
+		{% csrf_token %}
+{{ form.non_field_errors }}
+<div class="input-field col s6">
+<i class="material-icons prefix">collections_bookmark</i>
+    {{ form.nombre.errors }}
+    <label >Nombre:</label>
+    {{ form.nombre }}
+</div>
+
+<div class="input-field col s6">
+<i class="material-icons prefix">format_list_numbered</i>
+    {{ form.version.errors }}
+    <label >Versión:</label>
+    {{ form.version }}
+</div>
+
+<div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+    {{ form.fuentes.errors }}
+    <label >Fuente:</label>
+    {{ form.fuentes }}
+</div>
+
+<div class="input-field col s6">
+                      <i class="material-icons prefix">event_note</i>
+    {{ form.projecto.errors }}
+    <label >Proyecto</label>
+    <br>
+    {{ form.projecto }}
+</div>
+
+{% endblock %}
+
+{% block actor2 %}
+
+
+<div class="input-field col s12">
+                      <i class="material-icons prefix">event_note</i>
+    {{ form.descripcion.errors }}
+    <label >Descripción;</label>
+    {{ form.descripcion }}
+</div>
+<div class="input-field col s12">
+    <i class="material-icons prefix">people</i>
+    {{ form.comentario.errors }}
+    <label >Comentario:</label>
+    {{ form.comentario }}
+</div>
+
+
+{% endblock %}
+
+{% block actor3 %}
+<button type="submit" class="btn btn-success">Guardar</button>
+</form>
+
+{% endblock %}
+	
+{% block abrir %}
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('#gestionActor').modal('open');
+
+
+  });
+</script>
+      {% endblock %}

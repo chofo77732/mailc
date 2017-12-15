@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+
+th {
+    width:25%;
+    text-align: left;
+    background-color: #CEE3F6;
+}
+
+body {
+   
+    background-color: white;
+}
+</style>
+
+<title></title>
+</head>
+<body>
+
+<section style='text-align: center; font-family: arial'>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	<h3>Nombre del proyecto: {{proyecto.nombre}}</h3>
+	<br>
+<h1>Documento de Conflictos y defectos</h1>
+<br>
+<h3>Versión: {{proyecto.version}}</h3>
+<br>
+<h3>Fecha: {{proyecto.fecha}}</h3>
+<br>
+<h2>Preparado para:</h2>
+<br>
+<h3>{{proyecto.para}}</h3>
+<br>
+<h2>Preparado por:</h2>
+<br>
+<h3>{{proyecto.por}}</h3>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</section>
+
+<hr>
+<br>
+<h3>Indice</h3>
+
+<ul>
+
+{% if con %}
+<li><h4><a href='#conflictos'>Conflictos</a></h4></li>
+{% endif %} 
+
+{% for p in con %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+{% if def %}
+<li ><h4><a href='#defectos'>Defectos</a></h4></li>
+{% endif %} 
+
+{% for p in def %}
+<li><a href='#{{p.id}}{{p.nombre}}'>{{p.nombre}}</a></li>
+{% endfor %}
+
+
+<br>
+</ul>
+
+<br>
+
+<hr>
+{% if con %}
+<h3 id="conflictos">Conflictos</h3>
+{% endif %} 
+{% for p in con %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+<tr>
+<th>Tipo</th>
+<td>{{p.tipo}}</td>
+</tr>
+
+<tr>
+<th>Versión</th>
+<td>{{p.version}}</td>
+</tr>
+
+<tr>
+<th>Fuentes</th>
+<td>{{p.fuentes}}</td>
+
+</tr>
+
+<tr>
+<th>Autores</th>
+<td>{{p.autores}}</td>
+</tr>
+
+
+<tr>
+<th>Requerimiento</th>
+<td>{{p.requerimiento}}</td>
+</tr>
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+
+<tr>
+<th>Solución Alternativa</th>
+<td>{{p.solucion_alt}}</td>
+</tr>
+
+<tr>
+<th>Solución</th>
+<td>{{p.solucion}}</td>
+</tr>
+
+
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_actualizacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_creacion}}</td>
+</tr>
+</table>
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+
+<br>
+
+{% endfor %}
+
+
+{% if con %}
+<h3 id="defectos">Defectos</h3>
+{% endif %} 
+{% for p in con %}
+
+<table id='{{p.id}}{{p.nombre}}' style='width:100%'>
+<tr>
+<th>Nombre</th>
+<td>{{p.nombre}}</td>
+</tr>
+
+<tr>
+<th>Tipo</th>
+<td>{{p.tipo}}</td>
+</tr>
+
+<tr>
+<th>Versión</th>
+<td>{{p.version}}</td>
+</tr>
+
+<tr>
+<th>Fuentes</th>
+<td>{{p.fuentes}}</td>
+
+</tr>
+
+<tr>
+<th>Autores</th>
+<td>{{p.autores}}</td>
+</tr>
+
+
+<tr>
+<th>Requerimiento</th>
+<td>{{p.requerimiento}}</td>
+</tr>
+
+<tr>
+<th>Descripción</th>
+<td>{{p.descripcion}}</td>
+</tr>
+
+<tr>
+<th>Solución Alternativa</th>
+<td>{{p.solucion_alt}}</td>
+</tr>
+
+<tr>
+<th>Solución</th>
+<td>{{p.solucion}}</td>
+</tr>
+
+
+</table>
+
+<table style='width:100%'>
+<tr>
+<th>Fecha de Creación</th>
+<td>{{p.fecha_actualizacion}}</td>
+
+<th>Ultima Modificación</th>
+<td>{{p.fecha_creacion}}</td>
+</tr>
+</table>
+<table style='width:100%'>
+<tr>
+<th>Comentarios</th>
+<td>{{p.comentario}}</td>
+</tr>
+</table>
+
+<br>
+
+{% endfor %}

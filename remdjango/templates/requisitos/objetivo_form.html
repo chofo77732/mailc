@@ -1,0 +1,120 @@
+{% extends 'base/base.html' %}
+
+
+{% block actor %}
+{% endblock %}
+
+{% block modal %}
+  <div objetivo>
+     <div agregar class="container">
+        <div class="row">
+          <div id="gestionObjetivos" class="modal modal-fixed-footer">
+               <nav class="nav-extended">
+
+                   <div class="nav-content">
+                     <ul class="tabs tabs-transparent">
+                       <li class="tab"><a href="#mtest1">Objetivo</a></li>
+                     </ul>
+                   </div>
+               </nav>
+  <div id="mtest1" class="col s12">
+      <div class="container">
+          <div class="row">
+            <h4>General</h4>
+            <div class="row">
+<form method="POST">
+    {% csrf_token %}
+              {{ form.non_field_errors }}
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.nombre }}
+                  <label for="icon_telephone">Nombre</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">collections_bookmark</i>
+                  {{ form.projecto }}
+                  <label for="icon_telephone">Proyecto</label>
+                </div>
+            
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">format_list_numbered</i>
+                  {{ form.version }}
+                  <label for="icon_prefix">Versión</label>
+                </div>
+                
+            
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">person_outline</i>
+                  {{ form.fuentes }}
+                  <label for="icon_prefix">Fuentes</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">people</i>
+                  <label for="icon_telephone">Autores</label>
+                  <br>
+                  {{ form.autores }}
+                </div>
+<br>
+                <h4>Descripción</h4>
+                <br>
+                <br>
+             <div class="input-field col s12">
+               {{ form.descripcion }}
+               <label for="textarea1">El sistema deberá</label>
+             </div>
+             <div class="input-field col s12">
+               {{ form.comentario }}
+               <label for="textarea1">Comentario</label>
+             </div>
+             <br>
+             <br>
+             <br>
+                <h4>Prioridad</h4>
+                <br>
+                <br>
+                <div class="input-field col s12">
+                 <i class="material-icons prefix">subject</i>
+                  {{ form.importancia }}
+                  <label>Importancia</label>
+                </div>
+                <div class="input-field col s12">
+                 <i class="material-icons prefix">perm_device_information</i>
+                  {{ form.urgencia }}
+                  <label>Urgencia</label>
+                </div>
+                <div  class="input-field col s12">
+                 <i class="material-icons prefix">list</i>
+                  {{ form.estado }}
+                  <label>Estado</label>
+                </div>
+           <div class="input-field col s12">
+                 <i class="material-icons prefix">assessment</i>
+                  {{ form.estabilidad }}
+                  <label>Estabilidad</label> 
+                </div>
+                <br>
+                
+                <br>
+<button type="submit" class="btn btn-success">Guardar</button>
+</form>
+            </div>   
+          </div>
+      </div>
+  </div>
+   </div>
+  </div>
+ </div>
+</div>
+                {% endblock %}
+
+{% block abrir %}
+<script type="text/javascript">
+      $(document).ready(function(){
+    
+    $('#gestionObjetivos').modal('open');
+
+
+  });
+</script>
+      {% endblock %}
